@@ -1,6 +1,6 @@
-package main.java.bacit.web.bacit_web;
+package bacit.web.bacit_web;
 
-import main.java.bacit.web.bacit_models.HtmlGreier;
+import bacit.web.bacit_models.HtmlGreier;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,11 +25,11 @@ public class HomePageServlet extends HttpServlet {
             out.println("<h3>" + errorMessage + "</h3>");
         }
         out.println("<form action='login' method='post'/>");
-        out.println("<a href='/bacit-web-1.0-SNAPSHOT/register_user'>Last opp fil</a>");
+        out.println("<a href='/bacit-web-1.0-SNAPSHOT/upload'>Last opp fil</a>");
         out.println("<br>");
-        out.println("<a href='/bacit-web-1.0-SNAPSHOT/register_user'>Last ned fil</a>");
+        out.println("<a href='/bacit-web-1.0-SNAPSHOT/download'>Last ned fil</a>");
         out.println("<br>");
-        out.println("<a href='/bacit-web-1.0-SNAPSHOT/register_user'>Produktliste</a>");
+        out.println("<a href='/bacit-web-1.0-SNAPSHOT/Product_list'>Produktliste</a>");
         out.println("<br>");
         HtmlGreier.writeHtmlEnd(out);
     }

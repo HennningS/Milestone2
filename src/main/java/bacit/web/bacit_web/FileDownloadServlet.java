@@ -1,4 +1,4 @@
-package main.java.bacit.web.bacit_web;
+package bacit.web.bacit_web;
 
 public class FileDownloadServlet {
 }

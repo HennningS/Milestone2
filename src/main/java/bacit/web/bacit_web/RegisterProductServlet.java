@@ -1,7 +1,7 @@
-package main.java.bacit.web.bacit_web;
+package bacit.web.bacit_web;
 
-import main.java.bacit.web.bacit_models.HtmlGreier;
-import main.java.bacit.web.bacit_models.RegisterProductModel;
+import bacit.web.bacit_models.HtmlGreier;
+import bacit.web.bacit_models.RegisterProductModel;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

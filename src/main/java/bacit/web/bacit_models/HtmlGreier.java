@@ -1,4 +1,4 @@
-package main.java.bacit.web.bacit_models;
+package bacit.web.bacit_models;
 
 import java.io.PrintWriter;
 
