@@ -1,5 +1,7 @@
 package bacit.web.bacit_web;
 
+import bacit.web.bacit_models.HtmlGreier;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +33,7 @@ public class ProductListServlet extends HttpServlet {
 
             try {
 
-                Connection con = bacit.web.bacit_web.DBUtils.getINSTANCE().getConnection(out);
+                Connection con = DBUtils.getINSTANCE().getConnection();
                 PreparedStatement ps = con.prepareStatement("select * from Produkter where brukes = 0");
                 ResultSet res = ps.executeQuery();
 
@@ -47,5 +49,18 @@ public class ProductListServlet extends HttpServlet {
                 out.println("Noe funket ikke: "+e);
             }
         }
+        addProductForm(out,null);
+    }
+
+    private void addProductForm(PrintWriter out, String errorMessage) {
+        HtmlGreier.writeHtmlStart(out, "Legg til nytt produkt");
+        if (errorMessage != null) {
+            out.println("<h3>" + errorMessage + "</h3>");
+        }
+        out.println("<form action='login' method='post'/>");
+        out.println("<a href='/bacit-web-1.0-SNAPSHOT/register_product'>Legg til nytt produkt</a>");
+        HtmlGreier.writeHtmlEnd(out);
     }
 }
+
+

@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
         String Telefonnummer = request.getParameter("Email");
         String Passord = request.getParameter("Password");
 
-        if(checkUser(Telefonnummer, Passord, out)) {
+        if(checkUser(Telefonnummer, Passord)) {
             response.sendRedirect("home_page");
         }
         else {
@@ -54,13 +54,13 @@ public class LoginServlet extends HttpServlet {
         HtmlGreier.writeHtmlEnd(out);
     }
 
-    public static boolean checkUser(String Email, String Password, PrintWriter out) {
+    public static boolean checkUser(String Email, String Password) {
 
         {
             boolean st = false;
             try {
 
-                Connection con = bacit.web.bacit_web.DBUtils.getINSTANCE().getConnection(out);
+                Connection con = DBUtils.getINSTANCE().getConnection();
 
                 PreparedStatement ps = con.prepareStatement("select * from Users where Email=? and Password=?");
                 ps.setString(1, Email);

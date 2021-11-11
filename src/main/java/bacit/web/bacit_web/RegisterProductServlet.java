@@ -36,7 +36,7 @@ public class RegisterProductServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         if(validateProduct(Product)){
             try{
-                writeProductToDb(Product, out);
+                writeProductToDb(Product);
             }
             catch (SQLException | ClassNotFoundException ex){
                 out.println(ex.getMessage());
@@ -51,8 +51,8 @@ public class RegisterProductServlet extends HttpServlet {
         }
     }
 
-    private void writeProductToDb(RegisterProductModel Product,PrintWriter out) throws SQLException, ClassNotFoundException {
-        Connection db = bacit.web.bacit_web.DBUtils.getINSTANCE().getConnection(out);
+    private void writeProductToDb(RegisterProductModel Product) throws SQLException, ClassNotFoundException {
+        Connection db = bacit.web.bacit_web.DBUtils.getINSTANCE().getConnection();
         String insertProductCommand = "insert into Produkter (Produkt_navn, Kategori, Beskrivelse, Brukes) values(?,?,?,0);";
         PreparedStatement statement = db.prepareStatement(insertProductCommand);
         statement.setString(1, Product.getproductName());
