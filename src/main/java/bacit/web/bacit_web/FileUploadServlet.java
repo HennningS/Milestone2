@@ -17,7 +17,7 @@ import java.nio.file.Paths;
 import java.util.logging.Logger;
 
 
-@WebServlet(name = "fileUpload", value = "/upload")
+@WebServlet(name = "fileUpload", value = "/fileUpload")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5 * 5)
 public class FileUploadServlet extends HttpServlet {
 

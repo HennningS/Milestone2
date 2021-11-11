@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.logging.Logger;
 
-@WebServlet(name = "fileDownload", value = "/download")
+@WebServlet(name = "fileDownload", value = "/fileDownload")
 public class FileDownloadServlet extends HttpServlet {
 
     Logger logger = Logger.getLogger(String.valueOf(FileUploadServlet.class));
