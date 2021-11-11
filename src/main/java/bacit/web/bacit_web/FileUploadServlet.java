@@ -2,7 +2,7 @@ package bacit.web.bacit_web;
 
 import bacit.web.bacit_DAO.FileDAO;
 import bacit.web.bacit_models.FileModel;
-import bacit.web.bacit_utilities.HtmlHelper;
+import bacit.web.bacit_models.HtmlGreier;
 
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -28,15 +28,15 @@ public class FileUploadServlet extends HttpServlet {
         response.setContentType("text/html");
 
         PrintWriter out = response.getWriter();
-        HtmlHelper.writeHtmlStart(out, "Upload a file");
+        HtmlGreier.writeHtmlStart(out, "Upload a file");
         writeFileUploadForm(out,null);
-        HtmlHelper.writeHtmlEnd(out);
+        HtmlGreier.writeHtmlEnd(out);
     }
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        HtmlHelper.writeHtmlStart(out, "Upload a file");
+        HtmlGreier.writeHtmlStart(out, "Upload a file");
         try{
             Part filePart = request.getPart("file");
             String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
@@ -59,7 +59,7 @@ public class FileUploadServlet extends HttpServlet {
             writeFileUploadForm(out, ex.getMessage());
 
         }
-        HtmlHelper.writeHtmlEnd(out);
+        HtmlGreier.writeHtmlEnd(out);
     }
 
     private void writeFileUploadForm(PrintWriter out, String errorMessage) {
