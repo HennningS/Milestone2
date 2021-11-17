@@ -70,7 +70,7 @@ public class FileUploadServlet extends HttpServlet {
         }
         out.println("<form action='fileUpload' method='POST' enctype='multipart/form-data'>");
         out.println("<label for='file'>Upload a file</label> ");
-        out.println("<input type='file' name='file'/>");
+        out.println("<input type='file'file' name='/>");
         out.println("<input type='submit' value='Upload file'/>");
         out.println("</form>");
     }
